@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Investments - Admin Panel</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0f172a;
+      color: white;
+    }
+    .container {
+      display: flex;
+    }
+    .sidebar {
+      width: 250px;
+      background-color: #1e293b;
+      height: 100vh;
+      padding: 20px 10px;
+      position: fixed;
+      left: 0;
+      top: 0;
+    }
+    .sidebar a {
+      display: block;
+      padding: 10px;
+      margin: 5px 0;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    .sidebar a:hover {
+      background-color: #334155;
+    }
+    .sidebar h2 {
+      color: #facc15;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .main-content {
+      margin-left: 250px;
+      padding: 20px;
+      width: calc(100% - 250px);
+    }
+    h1 {
+      color: #fbbf24;
+      margin-bottom: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #1e293b;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    th, td {
+      padding: 12px;
+      border-bottom: 1px solid #334155;
+      text-align: left;
+    }
+    th {
+      background-color: #1e3a8a;
+    }
+    td button {
+      padding: 5px 10px;
+      margin: 0 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .approve-btn {
+      background-color: #22c55e;
+      color: white;
+    }
+    .reject-btn {
+      background-color: #ef4444;
+      color: white;
+    }
+    .footer {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 14px;
+      color: #94a3b8;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="sidebar">
+      <h2>Admin Panel</h2>
+      <a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+      <a href="users.html"><i class="fas fa-users-cog"></i> Manage Users</a>
+      <a href="investments.html"><i class="fas fa-chart-line"></i> Investments</a>
+      <a href="withdrawals.html"><i class="fas fa-money-bill-wave"></i> Withdrawals</a>
+      <a href="reports.html"><i class="fas fa-file-alt"></i> Reports</a>
+      <a href="settings.html"><i class="fas fa-cogs"></i> Settings</a>
+      <a href="#" onclick="logoutUser()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </div>
+
+    <div class="main-content">
+      <h1>Investments Management</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>User</th>
+            <th>Amount (KES)</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="investmentTable">
+          <tr>
+            <td>user01</td>
+            <td>10,000</td>
+            <td>2025-06-01</td>
+            <td>Pending</td>
+            <td>
+              <button class="approve-btn" onclick="approveInvestment(this)">Approve</button>
+              <button class="reject-btn" onclick="rejectInvestment(this)">Reject</button>
+            </td>
+          </tr>
+          <tr>
+            <td>user02</td>
+            <td>5,000</td>
+            <td>2025-05-30</td>
+            <td>Approved</td>
+            <td>-</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="footer">&copy; 2025 Hustle Yangu Admin Panel. All rights reserved.</div>
+    </div>
+  </div>
+
+  <script>
+    function logoutUser() {
+      localStorage.clear();
+      window.location.href = "login.html";
+    }
+
+    function approveInvestment(button) {
+      const row = button.closest("tr");
+      row.cells[3].textContent = "Approved";
+      row.cells[4].innerHTML = "-";
+      alert("Investment approved.");
+    }
+
+    function rejectInvestment(button) {
+      const row = button.closest("tr");
+      row.cells[3].textContent = "Rejected";
+      row.cells[4].innerHTML = "-";
+      alert("Investment rejected.");
+    }
+  </script>
+
+</body>
+                </html>
