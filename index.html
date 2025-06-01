@@ -3,46 +3,53 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Admin Panel</title>
-  <link rel="stylesheet" href="style.css" />
-  <script>
-    function logout() {
-      alert("Logging out...");
-      window.location.href = "login.html";
+  <title>Welcome - Admin Panel</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0f172a;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      flex-direction: column;
     }
-  </script>
+
+    h1 {
+      font-size: 36px;
+      color: #facc15;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 18px;
+      color: #cbd5e1;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      background-color: #22d3ee;
+      color: #0f172a;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background-color: #0ea5e9;
+    }
+  </style>
 </head>
 <body>
-  <div class="sidebar">
-    <h2>Admin Panel</h2>
-    <ul>
-      <li><a href="#">Dashboard</a></li>
-      <li><a href="#">Users</a></li>
-      <li><a href="#">Reports</a></li>
-      <li><a href="#">Settings</a></li>
-      <li><a href="#" onclick="logout()">Logout</a></li>
-    </ul>
-  </div>
-
-  <div class="main">
-    <header>
-      <h1>Welcome, Admin</h1>
-    </header>
-
-    <section class="cards">
-      <div class="card">
-        <h3>Total Users</h3>
-        <p>150</p>
-      </div>
-      <div class="card">
-        <h3>Reports</h3>
-        <p>12</p>
-      </div>
-      <div class="card">
-        <h3>Revenue</h3>
-        <p>$2,500</p>
-      </div>
-    </section>
-  </div>
+  <h1>Admin Portal</h1>
+  <p>Welcome to the Admin Panel. Please login to continue.</p>
+  <a href="login.html" class="btn">Login</a>
 </body>
 </html>
