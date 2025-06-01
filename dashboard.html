@@ -6,7 +6,6 @@
   <title>Admin Dashboard - Hustle Yangu</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
-    /* Reuses your existing user dashboard styles */
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -104,7 +103,7 @@
     }
   </style>
 </head>
-<body onload="authAdmin()">
+<body>
 
   <div class="container">
     <div class="sidebar">
@@ -119,7 +118,7 @@
     </div>
 
     <div class="main-content">
-      <div class="welcome">Welcome, Admin <span id="adminName"></span></div>
+      <div class="welcome">Welcome to Admin Dashboard, <span id="adminName"></span></div>
 
       <div class="cards">
         <div class="card"><h4>Total Users</h4><h3>1,234</h3></div>
@@ -131,15 +130,9 @@
       <div class="activity-log">
         <h4>Recent Activity</h4>
         <table>
-          <tr>
-            <th>User</th><th>Action</th><th>Amount</th><th>Date</th>
-          </tr>
-          <tr>
-            <td>user01</td><td>Deposit</td><td>KES 1,000</td><td>2025-06-01</td>
-          </tr>
-          <tr>
-            <td>user02</td><td>Withdraw Request</td><td>KES 500</td><td>2025-06-01</td>
-          </tr>
+          <tr><th>User</th><th>Action</th><th>Amount</th><th>Date</th></tr>
+          <tr><td>user01</td><td>Deposit</td><td>KES 1,000</td><td>2025-06-01</td></tr>
+          <tr><td>user02</td><td>Withdraw Request</td><td>KES 500</td><td>2025-06-01</td></tr>
         </table>
       </div>
 
@@ -148,15 +141,9 @@
   </div>
 
   <script>
-    function authAdmin() {
-      const username = localStorage.getItem("username");
-      if (username !== "admin") {
-        alert("Unauthorized access. Admins only.");
-        window.location.href = "login.html";
-      } else {
-        document.getElementById("adminName").textContent = username;
-      }
-    }
+    // Display the current username (if any)
+    const user = localStorage.getItem("username") || "Guest";
+    document.getElementById("adminName").textContent = user;
 
     function logoutUser() {
       localStorage.clear();
